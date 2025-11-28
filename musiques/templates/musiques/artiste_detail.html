@@ -5,22 +5,19 @@
     <div class="col-md-8">
       <div class="card shadow-sm">
         <div class="card-header bg-primary text-white">
-          <h4 class="mb-0">Détail du morceau</h4>
+          <h4 class="mb-0">Détail de l'artiste</h4>
         </div>
         <div class="card-body">
           <ul class="list-group list-group-flush mb-4">
             <li class="list-group-item">
-              <strong class="text-dark">Titre :</strong> {{ object.titre }}
-            </li>
-            <li class="list-group-item">
-              <strong class="text-dark">Artiste :</strong> {{ object.artiste.nom }}
+              <strong class="text-dark">Nom :</strong> {{ object.nom }}
             </li>
           </ul>
           <div class="d-flex justify-content-between">
-            <a class="btn btn-danger" href="{% url 'musiques:morceau-delete' object.pk %}">
+            <a class="btn btn-danger" href="{% url 'musiques:artiste-delete' object.pk %}">
               <i class="bi bi-trash"></i> Supprimer
             </a>
-            <a class="btn btn-secondary ms-2" href="{% url 'musiques:morceau-list' %}">
+            <a class="btn btn-secondary ms-2" href="{% url 'musiques:artiste-list' %}">
               <i class="bi bi-arrow-left"></i> Revenir à la liste
             </a>
           </div>

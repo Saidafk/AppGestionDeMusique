@@ -12,7 +12,11 @@
             <ul class="list-group list-group-flush">
               {% for artiste in artistes %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <span class="text-dark fw-semibold">{{ artiste.nom }}</span>
+                  <a href="{% url 'musiques:artiste-detail' artiste.pk %}" class="text-decoration-none flex-grow-1">
+                    <div>
+                      <strong class="text-dark">{{ artiste.nom }}</strong>
+                    </div>
+                  </a>
                    <a href="{% url 'musiques:artiste-update' artiste.pk %}" class="btn btn-outline-secondary btn-sm ms-3" title="Modifier">
                     <i class="bi bi-pencil"></i> Modifier
                   </a> 

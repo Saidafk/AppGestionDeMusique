@@ -51,3 +51,13 @@ class ArtisteUpdateView(UpdateView):
     fields = ['nom']
     template_name = "musiques/artiste_form.html"
     success_url = reverse_lazy('musiques:artiste-list')
+
+class ArtisteDetailView(DetailView):
+    model = Artiste
+    template_name = "musiques/artiste_detail.html"
+    context_object_name = "object"
+
+class ArtisteDeleteView(DeleteView):
+    model = Artiste
+    template_name = "musiques/artiste_confirm_delete.html"
+    success_url = reverse_lazy('musiques:artiste-list')
