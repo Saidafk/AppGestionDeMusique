@@ -1,0 +1,46 @@
+{% extends "musiques/base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">Morceaux</h4>
+        </div>
+
+        <div class="card-body p-0">
+          {% if morceaux %}
+            <ul class="list-group list-group-flush">
+              {% for morceau in morceaux %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <a href="{% url 'musiques:morceau-detail' morceau.pk %}" 
+                     class="text-decoration-none flex-grow-1">
+                    <div>
+                      <strong class="text-dark">{{ morceau.titre }}</strong><br>
+                      <small class="text-muted">par {{ morceau.artiste.nom }}</small>
+                    </div>
+                  </a>
+                  <a href="{% url 'musiques:morceau-update' morceau.pk %}" 
+                     class="btn btn-outline-secondary btn-sm ms-3" title="Modifier">
+                    <i class="bi bi-pencil"></i> Modifier
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <div class="p-3">
+              <p class="mb-0">Aucun morceau trouvé.</p>
+            </div>
+          {% endif %}
+		  <div class="p-3">
+            <a class="btn btn-primary" href="{% url 'musiques:morceau-create' %}">
+              <i class="bi bi-plus-lg me-1"></i>Ajouter un morceau
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

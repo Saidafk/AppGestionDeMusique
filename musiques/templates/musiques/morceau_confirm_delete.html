@@ -1,0 +1,27 @@
+{% extends "musiques/base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-header bg-danger text-white">
+          <h4 class="mb-0">Confirmer la suppression</h4>
+        </div>
+        <div class="card-body">
+          <p>Voulez-vous vraiment supprimer le morceau suivant ?</p>
+          <ul>
+            <li><strong>Titre :</strong> {{ object.titre }}</li>
+            <li><strong>Artiste :</strong> {{ object.artiste.nom }}</li>
+          </ul>
+
+          <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+            <a href="{% url 'musiques:morceau-detail' object.pk %}" class="btn btn-secondary ms-2">Annuler</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

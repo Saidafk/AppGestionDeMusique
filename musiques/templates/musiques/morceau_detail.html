@@ -1,0 +1,11 @@
+{% extends "musiques/base.html" %}
+{% block content %}
+<ul>
+  <li>{{ object.titre }}</li>
+  <li>{{ object.artiste.nom }}</li>
+</ul>
+
+<!-- simple lien vers la page de confirmation (GET) -->
+<a class="btn btn-danger" href="{% url 'musiques:morceau-delete' object.pk %}">Supprimer</a>
+<a class="btn btn-secondary ms-2" href="{% url 'musiques:morceau-list' %}">Revenir à la liste</a>
+{% endblock %}
