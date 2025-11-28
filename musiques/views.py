@@ -2,6 +2,11 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Morceau, Artiste
 
+from django.shortcuts import render
+
+def frencky_vincent_view(request):
+    return render(request, 'musiques/frencky_vincent.html')
+
 class MorceauList(ListView):
     model = Morceau
     template_name = "musiques/morceau_list.html"

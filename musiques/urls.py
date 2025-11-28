@@ -1,5 +1,5 @@
 from django.urls import path, include
-from musiques.views import MorceauDetailView, MorceauList, MorceauCreateView, MorceauUpdateView, MorceauDeleteView, ArtisteListView, ArtisteCreateView, ArtisteUpdateView
+from musiques.views import MorceauDetailView, MorceauList, MorceauCreateView, MorceauUpdateView, MorceauDeleteView, ArtisteListView, ArtisteCreateView, ArtisteUpdateView, frencky_vincent_view
 from rest_framework import routers
 from musiques.api_views import ArtisteViewSet, MorceauViewSet
 router = routers.DefaultRouter()
@@ -8,6 +8,7 @@ router.register(r'artistes', ArtisteViewSet)
 
 app_name = 'musiques'
 urlpatterns = [
+    path('frencky/', frencky_vincent_view, name='frencky-vincent'),
     path('<int:pk>/', MorceauDetailView.as_view(), name='morceau-detail'),
     path('', MorceauList.as_view(), name='morceau-list'),
     path('create/', MorceauCreateView.as_view(), name='morceau-create'),
